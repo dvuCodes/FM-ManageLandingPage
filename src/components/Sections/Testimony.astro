@@ -1,0 +1,10 @@
+---
+import { Image } from 'astro:assets';
+import userImage from "../../images/avatar-ali.png";
+---
+
+<section class="flex flex-col gap-6">
+    <h1 class="text-3xl font-extrabold">What they've said</h1>
+
+    <Image src={userImage} alt="avatar ali" width={120} height={120} class="m-auto" loading='lazy'/>
+</section>

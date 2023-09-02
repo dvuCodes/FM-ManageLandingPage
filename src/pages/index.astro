@@ -3,13 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import illustrationImage from "../images/illustration-intro.svg?url"
 import Button from '../components/Button.astro';
 
+
 // import components
 import H1 from '../components/H1.astro';
+import AboutUs from '../components/Sections/AboutUs.astro';
+import Testimony from '../components/Sections/Testimony.astro';
 
 ---
 
 <Layout title="Manage Landing Page">
-	<main class="flex flex-col">
+	<main class="flex flex-col md:max-w-[80%] p-4 gap-10 justify-center items-center m-auto">
 
 			<img src={illustrationImage} alt="illustrations of graphs">
 
@@ -21,10 +24,14 @@ import H1 from '../components/H1.astro';
 				<span class="mb-10"></span>
 			</section>
 
-			<article class="flex flex-col md:flex-row gap-6 items-center">
-				<H1>What's different about Manage?</H1>
-				<p class="text-center">Manage provides all the functionality your team needs, without the complexity. Our software is tailor-made for modern digital product teams.</p>
-			</article>
+			<AboutUs />
+
+			<Testimony
+
+
+
+
+
 
 	</main>
 </Layout>
