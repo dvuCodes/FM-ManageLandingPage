@@ -10,26 +10,29 @@ import H1 from '../components/H1.astro';
 import Button from '../components/Button.astro';
 import AboutUs from '../components/Sections/AboutUs.astro';
 import Testimony from '../components/Sections/Testimony.astro';
+import CTAbottom from '../components/CTAbottom.astro';
+import Footer from '../components/Footer.astro';
 
 
 ---
 
 <Layout title="Manage Landing Page">
-	<main class="flex flex-col md:max-w-[80%] p-4 gap-10 justify-center items-center m-auto">
+	<main class="flex flex-col md:max-w-[80%] justify-center items-center m-auto">
 
 			<img src={illustrationImage} alt="illustrations of graphs">
 
-			<section class="flex flex-col items-center text-center md:text-start gap-6">
+			<section class="flex flex-col items-center text-center md:text-start gap-6 p-4">
 				<H1>Bring everyone together to build better products.</H1>
 				
 				<p>Manage makes it simple for software teams to plan day-to-day tasks while keeping the larger team goals in view.</p>
 				<Button />
-				<span class="mb-10"></span>
 			</section>
 
 			<AboutUs />
 
-			<Testimony client:load/>
+			<Testimony />
+			<CTAbottom />
+			<Footer/>
 
 
 

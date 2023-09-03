@@ -1,12 +1,17 @@
 ---
+
+import {Image} from "astro:assets"
 import logo from "../images/logo.svg?url"
 import hamburgerIcon from "../images/icon-hamburger.svg?url"
 ---
 
 <header class="flex justify-between items-center-2 p-4">
-    <div>
-        <img src={logo} alt="site logo">
+
+    <div class="p-2"> 
+        <Image src="./src/images/logo.svg" alt="manage logo" width="180" height="100" />
     </div>
+
+
     <nav>
         <!-- desktop menu -->
         <ul class="hidden md:flex gap-2">
