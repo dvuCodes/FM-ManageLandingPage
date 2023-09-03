@@ -8,18 +8,19 @@ import data from "../../data";
 
 ---
 
-<section class="flex flex-col gap-6 justify-center items-center p-4 my-5">
+<section class="flex flex-col gap-6 justify-center items-center p-4 my-16">
     <H1>What they've said</H1>
 
-    {data.map((data, index)=> (
-        <TestimonyCards
-            name={data.name}
-            index={index}
-            testimony={data.testimony}
-            image={data.image}
-        />
-    ) )}
-
+    <div class="flex flex-col md:flex-row my-10">
+        {data.map((data, index)=> (
+            <TestimonyCards
+                name={data.name}
+                index={index}
+                testimony={data.testimony}
+                image={data.image}
+            />
+        ) )}
+    </div>
         <Button/>
 </section>
 

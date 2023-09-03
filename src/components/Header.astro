@@ -1,11 +1,12 @@
 ---
 
 import {Image} from "astro:assets"
-import logo from "../images/logo.svg?url"
 import hamburgerIcon from "../images/icon-hamburger.svg?url"
+import Button from "./Button.astro";
+import NavLinks from "./NavLinks.astro";
 ---
 
-<header class="flex justify-between items-center-2 p-4">
+<header class="flex justify-between items-center-2 p-4 md:max-w-[80%] mx-auto">
 
     <div class="p-2"> 
         <Image src="./src/images/logo.svg" alt="manage logo" width="180" height="100" />
@@ -14,25 +15,35 @@ import hamburgerIcon from "../images/icon-hamburger.svg?url"
 
     <nav>
         <!-- desktop menu -->
-        <ul class="hidden md:flex gap-2">
-            <a href="/"><li>Home</li></a>
-            <a href="/"><li>Careers</li></a>
-            <a href="/"><li>Pricing</li></a>
-            <a href="/"><li>Products</li></a>
-            <a href="/"><li>Privacy Policy</li></a>
-            <a href="/"><li>About Us</li></a>
+        <ul class="hidden md:flex gap-10">
+            <NavLinks link="/">Pricing</NavLinks>
+            <NavLinks link="/">Products</NavLinks>
+            <NavLinks link="/">Careers</NavLinks>
+            <NavLinks link="/">Comunnity</NavLinks>
         </ul>
+
 
         <!-- mobile and mobile menus -->
         <div class="w-10 h-10 flex items-center justify-center cursor-pointer md:hidden">
             <img src={hamburgerIcon} alt="ham">
         </div>
         <ul class="hidden gap-2">
-            <a href="/"><li>Home</li></a>
-            <a href="/"><li>Home</li></a>
-            <a href="/"><li>Home</li></a>
-            <a href="/"><li>Home</li></a>
-            <a href="/"><li>Home</li></a>
+            <NavLinks link="/">Pricing</NavLinks>
+            <NavLinks link="/">Products</NavLinks>
+            <NavLinks link="/">Careers</NavLinks>
+            <NavLinks link="/">Comunnity</NavLinks>
         </ul>
     </nav>
+
+    <div class="cta-button">
+        <Button />
+    </div>
 </header>
+
+<style>
+@media(max-width: 760px){
+    .cta-button{
+        display: none;
+    }
+}
+</style>
