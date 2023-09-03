@@ -1,0 +1,23 @@
+---
+import {Image} from "astro:assets"
+
+interface Props {
+    image: string;
+    name: string;
+    testimony: string;
+    index   : number;
+}
+
+const { image, name, testimony, index } = Astro.props;
+---
+
+
+<div class="testimony-card grid grid-rows-2 ali items-center text-center" data-index={index}>
+
+    <Image src={image} alt="avatar ali" width={120} height={120} class="m-auto" loading='lazy'/>
+
+    <h4 class="h-2 text-xl">{name}</h4>
+    
+    <p class="text-gray-600">{testimony}</p>
+
+</div>

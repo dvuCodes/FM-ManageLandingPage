@@ -1,13 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import illustrationImage from "../images/illustration-intro.svg?url"
-import Button from '../components/Button.astro';
+import data from '../data.js';
+import Pagination from 'astro:assets';
 
 
 // import components
 import H1 from '../components/H1.astro';
+import Button from '../components/Button.astro';
 import AboutUs from '../components/Sections/AboutUs.astro';
 import Testimony from '../components/Sections/Testimony.astro';
+
 
 ---
 
@@ -16,17 +19,17 @@ import Testimony from '../components/Sections/Testimony.astro';
 
 			<img src={illustrationImage} alt="illustrations of graphs">
 
-			<section class="flex flex-col items-center gap-6">
+			<section class="flex flex-col items-center text-center md:text-start gap-6">
 				<H1>Bring everyone together to build better products.</H1>
 				
 				<p>Manage makes it simple for software teams to plan day-to-day tasks while keeping the larger team goals in view.</p>
-				<Button buttonName="Get Started" />
+				<Button />
 				<span class="mb-10"></span>
 			</section>
 
 			<AboutUs />
 
-			<Testimony
+			<Testimony client:load/>
 
 
 
