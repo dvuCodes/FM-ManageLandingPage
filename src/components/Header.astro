@@ -1,19 +1,20 @@
 ---
 
 import {Image} from "astro:assets"
-import hamburgerIcon from "../images/icon-hamburger.svg?url"
+import hamburgerIconOpen from "../images/icon-hamburger.svg?url"
+import hamburgerIconClose from "../images/icon-close.svg?url"
 import Button from "./Button.astro";
 import NavLinks from "./NavLinks.astro";
 ---
 
-<header class="flex justify-between items-center-2 p-4 md:max-w-[80%] mx-auto">
+<header class="flex justify-between items-center-2 p-4 md:max-w-[80%] mx-auto mb-10 md:mb-20">
 
     <div class="p-2"> 
         <Image src="./src/images/logo.svg" alt="manage logo" width="180" height="100" />
     </div>
 
 
-    <nav>
+    <nav class="z-50 relative">
         <!-- desktop menu -->
         <ul class="hidden md:flex gap-10">
             <NavLinks link="/">Pricing</NavLinks>
@@ -22,28 +23,73 @@ import NavLinks from "./NavLinks.astro";
             <NavLinks link="/">Comunnity</NavLinks>
         </ul>
 
-
+        
         <!-- mobile and mobile menus -->
-        <div class="w-10 h-10 flex items-center justify-center cursor-pointer md:hidden">
-            <img src={hamburgerIcon} alt="ham">
-        </div>
-        <ul class="hidden gap-2">
-            <NavLinks link="/">Pricing</NavLinks>
-            <NavLinks link="/">Products</NavLinks>
-            <NavLinks link="/">Careers</NavLinks>
-            <NavLinks link="/">Comunnity</NavLinks>
-        </ul>
+            <div class="z-40 w-10 h-10 flex items-center justify-center cursor-pointer md:hidden" id="hamburger-icon">
+                <img src={hamburgerIconOpen} alt="hamburger" />
+            </div>  
+            <div class="relative">
+                <ul class="z-30 shadow-xl hidden fixed flex-col justify-center items-center gap-4 rounded-md bg-white mx-auto mt-20 inset-0 max-w-[80%] h-[400px] " id="mobile-nav">
+                    <NavLinks link="/">Pricing</NavLinks>
+                    <NavLinks link="/">Products</NavLinks>
+                    <NavLinks link="/">Careers</NavLinks>
+                    <NavLinks link="/">Comunnity</NavLinks>
+                </ul>  
+                <div class="z-10 h-[100vh] w-[100vw] inset-0 bg-gradient-to-b from-transparent to-black opacity-90 mt-20" id="layer">
+                </div>
+                </div>  
     </nav>
 
     <div class="cta-button">
         <Button />
     </div>
+
 </header>
 
+
+<script>
+
+const hamburgerIcon = document.getElementById('hamburger-icon');
+const mobileNav = document.getElementById('mobile-nav');
+const layer = document.getElementById('layer');
+
+hamburgerIcon.addEventListener('click', () => {
+    hamburgerIcon.classList.toggle('open'); 
+    mobileNav.classList.toggle('active'); 
+    layer.classList.toggle('active'); 
+});
+
+
+</script>
+
 <style>
-@media(max-width: 760px){
-    .cta-button{
+    #layer {
+        display: none;
+
+    }
+
+    #layer.active {
+        display: block;
+        position: fixed;
+    }
+        
+    #hamburger-icon.open img {
         display: none;
     }
-}
+
+    #hamburger-icon.open::before {
+        content: url("../src/images/icon-close.svg");
+        display: block;
+    }
+    
+    #mobile-nav.active {
+        display: flex;
+    }
+    
+    @media (max-width: 760px) {
+        .cta-button {
+            display: none;
+        }
+
+    }
 </style>
