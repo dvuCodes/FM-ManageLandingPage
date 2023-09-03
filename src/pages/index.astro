@@ -1,8 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import illustrationImage from "../images/illustration-intro.svg?url"
-import data from '../data.js';
-import Pagination from 'astro:assets';
+import illustrationImage from "../images/illustration-intro.svg"
+import { Image } from 'astro:assets';
 
 
 // import components
@@ -19,25 +18,25 @@ import Footer from '../components/Footer.astro';
 <Layout title="Manage Landing Page">
 	<main class="flex flex-col md:max-w-[80%] justify-center items-center m-auto">
 
-			<img src={illustrationImage} alt="illustrations of graphs">
+			<section class="flex flex-col items-center text-center my-5 gap-6 md:text-start md:flex-row-reverse md:justify-center">
+				<div class="md:w-[50%]">	
+					<Image src={illustrationImage} alt="illustrations of graphs"></Image>
+				</div>
+			
 
-			<section class="flex flex-col items-center text-center md:text-start gap-6 p-4">
-				<H1>Bring everyone together to build better products.</H1>
+				<div class="flex flex-col gap-10 md:w-[50%] items-center md:justify-start md:items-start">
+					<H1>Bring everyone together to build better products.</H1>
 				
-				<p>Manage makes it simple for software teams to plan day-to-day tasks while keeping the larger team goals in view.</p>
-				<Button />
+					<p>Manage makes it simple for software teams to plan day-to-day tasks while keeping the larger team goals in view.</p>
+					<Button />
+				</div>
+
 			</section>
 
 			<AboutUs />
 
 			<Testimony />
-			<CTAbottom />
-			<Footer/>
-
-
-
-
-
-
 	</main>
+	<CTAbottom />
+	<Footer/>
 </Layout>
