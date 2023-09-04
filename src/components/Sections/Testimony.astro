@@ -1,7 +1,8 @@
 ---
-import TestimonyCards from "../TestimonyCards.astro";
 import H1 from "../H1.astro";
 import Button from "../Button.astro";
+import TestimoniesReact from "../TestimoniesReact.jsx";
+import TestimonyCards from "../TestimonyCards.astro";
 
 // util imports
 import data from "../../data";
@@ -11,7 +12,7 @@ import data from "../../data";
 <section class="flex flex-col gap-6 justify-center items-center p-4 my-16">
     <H1>What they've said</H1>
 
-    <div class="flex flex-col md:flex-row my-10">
+    <div class="flex flex-col md:flex-row my-10 testimony-cards-desktop">
         {data.map((data, index)=> (
             <TestimonyCards
                 name={data.name}
@@ -21,6 +22,15 @@ import data from "../../data";
             />
         ) )}
     </div>
+    <div class="md:hidden">    <TestimoniesReact client:load/></div>
+
         <Button/>
 </section>
 
+<style>
+    @media(max-width: 768px){
+        .testimony-cards-desktop{
+            display: none;
+        }
+    }
+</style>
