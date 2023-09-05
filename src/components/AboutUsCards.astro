@@ -10,16 +10,9 @@ const { cardNumber, cardTitle, description } = Astro.props;
 
 
 <div class=" w-full flex flex-col gap-4">
-    <div class="flex bg-orange-200 h-10 rounded-l-full" >
-        <div class="rounded-full w-16 text-white font-bold shadow-xl bg-orange-700 flex justify-center items-center">{cardNumber}</div>
+    <div class="flex bg-orange-200 h-auto rounded-l-full" >
+        <div class="rounded-full w-16 h-full py-1 text-white font-bold shadow-xl bg-orange-700 flex justify-center items-center">{cardNumber}</div>
         <h3 class="font-bold text-xl m-auto ">{cardTitle}</h3>
     </div>
     <p class="text-gray-600 p-2">{description}</p>
-
-    <!-- <div class="rounded-full w-16 text-white font-bold shadow-xl bg-orange-700 flex justify-center items-center">{cardNumber}</div>
-    <div class="">
-        <h3 class="font-bold text-xl m-auto ">{cardTitle}</h3>
-        <p class="text-gray-600">{description}</p>
-    </div> -->
-
 </div>

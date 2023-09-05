@@ -1,7 +1,9 @@
+import "../styles/global.css";
+
 const TestimonyCardsReact = ({ image, name, testimony, index }) => {
   return (
     <div
-      className="testimony-card grid grid-rows-2 mt-10 items-center text-center"
+      className="fade tranisition-all duration-100 ease-linear fade testimony-card grid grid-rows-2 mt-10 items-center text-center"
       data-index={index}>
       <img
         src={image}

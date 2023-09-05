@@ -1,33 +1,32 @@
 ---
 import H1 from "../H1.astro";
 import Button from "../Button.astro";
-import TestimoniesReact from "../TestimoniesReact.jsx";
-import TestimonyCards from "../TestimonyCards.astro";
+import TestimoniesReact from "../TestimoniesReact";
+import TestimonyCardsReact from "../TestimonyCardsReact";
 
 // util imports
 import data from "../../data";
+import type { Code, Debug } from "astro:components";
 
 ---
 
-<section class="flex flex-col gap-6 justify-center items-center p-4 my-16">
+<section class="flex flex-col gap-6 justify-center items-center p-4 my-5">
     <H1>What they've said</H1>
 
-    <div class="flex flex-col md:flex-row my-10 testimony-cards-desktop">
-        {data.map((data, index)=> (
-            <TestimonyCards
-                name={data.name}
-                index={index}
-                testimony={data.testimony}
-                image={data.image}
-            />
-        ) )}
+    <div class="flex testimony-cards-desktop">    
+      {data.map((card,index) => <TestimonyCardsReact image={card.image} name={card.name} testimony={card.testimony} index={index} />)}
     </div>
-    <div class="md:hidden">    <TestimoniesReact client:load/></div>
 
+
+    <div class="md:hidden"> 
+        <TestimoniesReact client:load />
+    </div>
         <Button/>
 </section>
 
-<style>
+<style>    
+
+
     @media(max-width: 768px){
         .testimony-cards-desktop{
             display: none;

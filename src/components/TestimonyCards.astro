@@ -12,7 +12,7 @@ const { image, name, testimony, index } = Astro.props;
 ---
 
 
-<div class="testimony-card grid grid-rows-2 mt-10 items-center text-center" data-index={index}>
+<div class="testimony-cards grid grid-rows-2 mt-10 items-center text-center fade" data-index={index} onclick=`currentSlide${index}`>
 
     <Image src={image} alt="avatar ali" width={120} height={120} class="mx-auto -my-4" loading='lazy'/>
 
@@ -21,3 +21,20 @@ const { image, name, testimony, index } = Astro.props;
     <p class="text-gray-600">{testimony}</p>
 
 </div>
+
+<script>
+    
+</script>
+
+<style>
+    /* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+</style>

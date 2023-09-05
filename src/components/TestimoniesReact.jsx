@@ -5,24 +5,12 @@ import TestimonyCardsReact from "./TestimonyCardsReact";
 const TestimoniesReact = () => {
   const [index, setIndex] = useState(0);
 
-  const previousOnClick = () => {
-    if (index < 0) {
-      setIndex(data.length - 1);
-    } else setIndex(index - 1);
+  const isActive = (currentIndex) => {
+    return currentIndex === index;
   };
-
-  const nextOnClick = () => {
-    setIndex(index + 1);
-    if (index > data.length - 1) {
-      setIndex(data.length - 1);
-    }
-  };
-
-  console.log(data[index].image);
-  console.log(index);
 
   return (
-    <div className="flex flex-col gap-10 md:flex-row my-10 border">
+    <div className="flex flex-col gap-10 md:flex-row my-10">
       <TestimonyCardsReact
         image={data[index].image}
         name={data[index].name}
@@ -30,13 +18,16 @@ const TestimoniesReact = () => {
         index={index}
       />
 
-      <div className="grid grid-cols-2 place-content-center">
-        <button onClick={() => previousOnClick()} className="w-[25%]">
-          Previous
-        </button>
-        <button onClick={() => nextOnClick()} className="w-[25%]">
-          Next
-        </button>
+      <div className="text-center">
+        {data.map((_, index) => (
+          <button
+            key={index}
+            type="button"
+            className={`inline-block tranisition-all duration-[0.6s] ease-linear cursor-pointer h-[15px] w-[15px] mx-[2px] bg-[#bbb] rounded-full active:bg-orange-600 hover:bg-orange-600 ${
+              isActive(index) ? "bg-orange-600" : ""
+            }`}
+            onClick={() => setIndex(index)}></button>
+        ))}
       </div>
     </div>
   );

@@ -6,16 +6,16 @@ import Button from "./Button.astro";
 import NavLinks from "./NavLinks.astro";
 ---
 
-<header class="flex justify-between items-center-2 px-4 py-16 md:max-w-[80%] mx-auto mb-10 md:mb-20">
+<header class="flex justify-between items-center-2 px-4 py-16 md:max-w-[80%] mx-auto md:mb-10">
 
     <div class="p-2"> 
-        <Image src="./src/images/logo.svg" alt="manage logo" width="180" height="100" />
+        <Image src="./src/images/logo.svg" alt="manage logo" width="200" height="100" />
     </div>
 
 
-    <nav class="z-50 relative">
+    <nav class="z-50 relative flex items-center justify-center">
         <!-- desktop menu -->
-        <ul class="hidden md:flex gap-10">
+        <ul class="hidden md:flex gap-8 justify-center items-center">
             <NavLinks link="/">Pricing</NavLinks>
             <NavLinks link="/">Products</NavLinks>
             <NavLinks link="/">Careers</NavLinks>
@@ -39,7 +39,7 @@ import NavLinks from "./NavLinks.astro";
                 </div>  
     </nav>
 
-    <div class="cta-button">
+    <div class="cta-button flex items-center justify-center">
         <Button />
     </div>
 
